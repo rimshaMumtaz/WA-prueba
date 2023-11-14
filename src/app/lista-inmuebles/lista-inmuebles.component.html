@@ -1,0 +1,19 @@
+<div class="inmuebles-list">
+  <div *ngIf="inmuebles && inmuebles && inmuebles.length">
+    <div *ngFor="let inmueble of inmuebles" class="inmueble-card">
+      <img [src]="inmueble.imagenes[0].Uri">
+      <p>{{ inmueble.precio }}</p>
+      <p>{{ inmueble.direccion }}</p>
+    </div>
+  </div>
+
+  <button class="ver-mas-btn" (click)="onLoadMore()">Ver más</button>
+
+</div>
+
+
+<div *ngIf="!inmuebles || inmuebles.length === 0">
+  <p>No hay inmuebles disponibles.</p>
+</div>
+
+<button (click)="onLoadMore()">Ver más</button>
