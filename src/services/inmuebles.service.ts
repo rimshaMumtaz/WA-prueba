@@ -13,4 +13,9 @@ export class InmueblesService {
     const apiUrl = `https://laravelint.alisedainmobiliaria.com/api/new-search?tipo=10&page=${page}`;
     return this.http.get(apiUrl);
   }
+
+  getDetalleInmueble(id: number): Observable<any> {
+    const apiUrl = `https://laravelint.alisedainmobiliaria.com/api/get-property/${id}`;
+    return this.http.get(apiUrl);
+  }
 }

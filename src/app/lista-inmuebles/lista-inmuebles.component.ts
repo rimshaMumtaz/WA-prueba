@@ -1,19 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {InmueblesService} from "../../services/inmuebles.service";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-lista-inmuebles',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './lista-inmuebles.component.html',
-  styleUrl: './lista-inmuebles.component.css'
+  styleUrls: ['./lista-inmuebles.component.css']
 })
 export class ListaInmueblesComponent implements OnInit{
   inmuebles: any;
   currentPage = 1;
 
-  constructor(private inmueblesService: InmueblesService) {}
+  constructor(private inmueblesService: InmueblesService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadInmuebles();
@@ -22,10 +21,8 @@ export class ListaInmueblesComponent implements OnInit{
 
   loadInmuebles(): void {
     this.inmueblesService.getInmuebles(this.currentPage).subscribe((data) => {
-      console.log(data)
-      this.inmuebles = data.data
-      if (this.inmuebles) {
-        this.inmuebles.data = this.inmuebles.concat(data.data);
+      if (this.inmuebles && this.inmuebles.data) {
+        this.inmuebles.data = this.inmuebles.data.concat(data.data);
       } else {
         this.inmuebles = data;
       }
@@ -35,5 +32,9 @@ export class ListaInmueblesComponent implements OnInit{
   onLoadMore(): void {
     this.currentPage++;
     this.loadInmuebles();
+  }
+
+  verDetalle(inmuebleId: number): void {
+    this.router.navigate(['/detalle', inmuebleId]);
   }
 }

@@ -1,6 +1,5 @@
-import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { ListaInmueblesComponent} from "./app/lista-inmuebles/lista-inmuebles.component";
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module'; // Import your AppModule
 
-bootstrapApplication(ListaInmueblesComponent, appConfig)
+platformBrowserDynamic().bootstrapModule(AppModule)
   .catch((err) => console.error(err));
