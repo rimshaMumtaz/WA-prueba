@@ -1,0 +1,55 @@
+/* detalle-inmueble.component.css */
+
+.detalle-inmueble {
+  display: flex;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.imagen img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.info {
+  flex: 1;
+}
+
+.info h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.precio {
+  color: #e44d26;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.descripcion {
+  color: #555;
+  font-size: 16px;
+}
+
+/* detalle-inmueble.component.css */
+
+.regresar-btn {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+
+.regresar-btn:hover {
+  background-color: #2980b9;
+}
